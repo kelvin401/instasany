@@ -1,21 +1,21 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import LogoImg from "public/logo.svg";
 import SearchIcon from "public/icon-search.svg";
 import UserIcon from "public/icon-user.svg";
 import { GridContainer } from "./grid";
+import { ActiveLink } from "../active-link";
 
 const arrayMenu = [
-  "Início",
-  "Benefícios",
-  "Pra quem é o curso?",
-  "Preços promocionais",
-  "Sobre nós",
+  { name: "Início", href: "/" },
+  { name: "Benefícios", href: "/beneficios" },
+  { name: "Pra quem é o curso?", href: "/pra-quem-e-o-curso" },
+  { name: "Preços promocionais", href: "/precos-promocionais" },
+  { name: "Sobre nós", href: "/sobre-nos" },
 ];
 
 export function Header() {
-  const activeStyle =
-    "bg-green-actived  text-white text-opacity-100  rounded-full";
   return (
     <header className="relative w-full h-24 bg-green-primary flex items-center">
       <GridContainer className="flex items-center justify-between">
@@ -23,15 +23,9 @@ export function Header() {
         <div className="flex items-center gap-20">
           <nav className="flex gap-2">
             {arrayMenu.map((menu, index) => (
-              <Link
-                key={index}
-                href="#"
-                className={`px-3 py-1 text-white text-opacity-40 hover:text-opacity-100 transition-all ${
-                  index === 0 && activeStyle
-                }`}
-              >
-                {menu}
-              </Link>
+              <ActiveLink key={index} href={menu.href}>
+                {menu.name}
+              </ActiveLink>
             ))}
           </nav>
           <div className="flex items-center gap-6">
