@@ -1,27 +1,14 @@
 "use client";
 import { GridContainer } from "@/components/header/grid";
 import { useEffect, useRef } from "react";
-import Image from "next/image";
 
-import FileIcon from "public/icon-file.svg";
-import HandIcon from "public/icon-hand.svg";
-import HandIcon02 from "public/icon-hand-02.svg";
-import MockupIcon from "public/mockup.svg";
 import gsap from "gsap";
 
 export default function Bene() {
   const textHeroRef = useRef(null);
-  const mockupLeftRef = useRef(null);
-  const mockupRightRef = useRef(null);
-  const iconHandLeftRef = useRef(null);
-  const iconHandRightRef = useRef(null);
 
   useEffect(() => {
     const textHero = textHeroRef.current;
-    const mLeft = mockupLeftRef.current;
-    const mRigth = mockupRightRef.current;
-    const iconHandLeft = iconHandLeftRef.current;
-    const iconHandRight = iconHandRightRef.current;
 
     gsap.fromTo(
       textHero,
@@ -36,35 +23,6 @@ export default function Bene() {
         ease: "power4.out",
       }
     );
-
-    gsap.fromTo(
-      mLeft,
-      {
-        opacity: 0,
-        rotate: 0,
-      },
-      {
-        opacity: 1,
-        rotate: -10,
-        duration: 1,
-      }
-    );
-
-    gsap.fromTo(
-      mRigth,
-      {
-        opacity: 0,
-        rotate: 0,
-      },
-      {
-        opacity: 1,
-        rotate: 10,
-        duration: 1,
-      }
-    );
-
-    gsap.fromTo(iconHandLeft, { opacity: 0 }, { opacity: 1 });
-    gsap.fromTo(iconHandRight, { opacity: 0 }, { opacity: 1 });
   }, []);
   return (
     <section className="relative w-full bg-green-primary h-hero border-t border-t-green-border pt-16 overflow-hidden bg-hero bg-no-repeat bg-top">
