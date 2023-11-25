@@ -20,6 +20,7 @@ export const ActiveLink = ({ href, children, ...rest }: ActiveLinkProps) => {
             ? "text-opacity-100 rounded-full bg-green-actived"
             : "text-opacity-40 hover:text-opacity-100 transition-all"
         }`}
+        {...rest}
       >
         {children}
       </Link>
